@@ -5,7 +5,7 @@
 ChangeRadar est un outil de veille technique auto-hébergé qui rapproche les sources publiques de changement (fin de support, bulletins de sécurité, releases) des technologies que vous utilisez. L’objectif : rendre les échéances visibles assez tôt pour préparer une mise à jour, une migration ou une vérification — sans transformer un signal incomplet en certitude.
 
 <p align="center">
-  <img src="preview.png" alt="Aperçu de fnote" width="600"/>
+  <img src="preview.png" alt="Aperçu de fnote"/>
 </p>
 
 > **Projet communautaire en évolution.** ChangeRadar aide à prioriser la veille ; il ne remplace ni les bulletins officiels, ni un outil de gestion des vulnérabilités, ni la validation d’un administrateur.
