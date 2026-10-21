@@ -2,7 +2,7 @@
 
 **Anticiper les changements techniques avant qu’ils ne deviennent des incidents.**
 
-ChangeRadar est un outil de veille technique auto-hébergé qui rapproche les sources publiques de changement (fin de support, bulletins de sécurité, releases) des technologies que vous utilisez. L’objectif : rendre les échéances visibles assez tôt pour préparer une mise à jour, une migration ou une vérification — sans transformer un signal incomplet en certitude.
+ChangeRadar est un outil de veille technique auto-hébergé qui rapproche les sources publiques de changement (fin de support, bulletins de sécurité, releases) des technologies que vous utilisez. L’objectif : rendre les échéances visibles assez tôt pour préparer une mise à jour, une migration ou une vérification.
 
 <p align="center">
   <img src="preview.png" alt="Aperçu de fnote"/>
@@ -21,8 +21,6 @@ ChangeRadar propose une vue simple : **sources → technologies suivies → sign
 
 Dans **Sources → Certificats SSL/TLS à surveiller**, ajoute une URL HTTPS ou un nom DNS (port facultatif). À chaque actualisation, ChangeRadar relève le certificat présenté, sa date d’expiration et vérifie séparément si la validation TLS aboutit. Les certificats expirant dans les 30 jours sont signalés comme prioritaires ; ceux expirant dans les 60 jours ou dont la chaîne/identité n’est pas validée demandent une vérification. Les contrôles sont exécutés depuis la machine qui héberge ChangeRadar : les services privés doivent donc être accessibles depuis cet hôte.
 
-**Attention :** le fichier [IANA root-anchors.xml](https://data.iana.org/root-anchors/root-anchors.xml) décrit les ancres de confiance **DNSSEC** de la zone racine. Ce n’est pas le certificat TLS d’un serveur web et sa validité ne donne pas la date d’expiration d’un certificat HTTPS. Pour surveiller une expiration TLS, ajoute l’URL du service lui-même.
-
 ## Fonctionnalités
 
 - **Veille des fins de support** via [endoflife.date](https://endoflife.date/).
@@ -38,7 +36,15 @@ Dans **Sources → Certificats SSL/TLS à surveiller**, ajoute une URL HTTPS ou 
 
 Prérequis : Python 3.10+ et `pip` pour un lancement local, ou Docker avec Docker Compose.
 
-### Option A — lancement local
+### Option A — Docker Compose
+
+```bash
+docker compose up -d --build
+```
+
+Ouvrez <http://127.0.0.1:8080>. Les données persistantes sont stockées dans le volume Docker défini par `docker-compose.yml`.
+
+### Option B — lancement local
 
 Depuis le dossier du projet :
 
@@ -48,14 +54,6 @@ python server.py
 ```
 
 Ouvrez ensuite <http://127.0.0.1:8080>.
-
-### Option B — Docker Compose
-
-```bash
-docker compose up -d --build
-```
-
-Ouvrez <http://127.0.0.1:8080>. Les données persistantes sont stockées dans le volume Docker défini par `docker-compose.yml`.
 
 ### Accès et déploiement
 
