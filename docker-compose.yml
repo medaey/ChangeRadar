@@ -1,0 +1,17 @@
+services:
+  changeradar:
+    build: .
+    restart: unless-stopped
+    environment:
+      CR_INSECURE: "1"            # écoute dans le conteneur ; l'accès reste limité à cette machine par "ports"
+      CR_TOKEN: "${CR_TOKEN:-}"   # optionnel : définir un jeton pour exiger un mot de passe
+    ports:
+      - "127.0.0.1:8080:8080"
+    volumes:
+      - crdata:/data
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+
+volumes:
+  crdata:

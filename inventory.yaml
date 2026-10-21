@@ -1,0 +1,36 @@
+assets:
+  # Configuration réelle inconnue -> doit produire "À VÉRIFIER", jamais "vulnérable"
+  - id: dns-recursive-01
+    product: unbound
+    version: "version-connue"
+    role: dnssec-validating-resolver
+    site: site-a
+    owner: infrastructure
+
+  # Fait connu : ancre présente -> NON CONCERNÉ
+  - id: dns-recursive-02
+    product: bind
+    version: "9.18.24"
+    role: dnssec-validating-resolver
+    site: site-b
+    owner: infrastructure
+    facts:
+      trust_anchor_ksk_2024_present: true
+
+  # Fait connu : ancre absente -> CONCERNÉ
+  - id: dns-recursive-03
+    product: knot-resolver
+    version: "5.7.1"
+    role: dnssec-validating-resolver
+    site: site-b
+    owner: infrastructure
+    facts:
+      trust_anchor_ksk_2024_present: false
+
+  # Hors périmètre
+  - id: web-01
+    product: nginx
+    version: "1.25.3"
+    role: web-frontend
+    site: site-a
+    owner: platform

@@ -1,0 +1,17 @@
+# Fixture de test — NON vérifiée. Dates/conditions à confirmer auprès de l'IANA
+# avant tout usage opérationnel (d'où l'absence de verified_at).
+id: dns-root-ksk-2024
+title: "Activation de la clé racine DNSSEC KSK-2024"
+category: cryptographic-transition
+source: "https://www.iana.org/dnssec/files"
+announced_at: "2024-07-24"
+effective_at: "2026-10-11"
+severity: high
+verification_required: true
+affected:
+  - role: dnssec-validating-resolver
+    condition: "trust-anchor KSK-2024 absent"
+    check:
+      fact: trust_anchor_ksk_2024_present
+      equals: false
+      question: "Le trust anchor KSK-2024 est-il installé sur ce résolveur ?"

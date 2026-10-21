@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#111827">
+<meta name="description" content="ChangeRadar — veille des changements techniques critiques, fins de support et alertes de sécurité.">
+<title>ChangeRadar — veille technique</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="stylesheet" href="/style.css">
+<script src="/app.js" defer></script>
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="/" aria-label="ChangeRadar, accueil">
+    <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 48 48" role="img"><defs><linearGradient id="radar-g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#7888ff"/><stop offset="1" stop-color="#3448c5"/></linearGradient></defs><rect x="1" y="1" width="46" height="46" rx="14" fill="url(#radar-g)"/><circle cx="23" cy="24" r="13" fill="none" stroke="white" stroke-opacity=".38" stroke-width="1.5"/><circle cx="23" cy="24" r="7" fill="none" stroke="white" stroke-opacity=".55" stroke-width="1.5"/><path d="M23 24 35 12" stroke="white" stroke-width="2.8" stroke-linecap="round"/><circle cx="23" cy="24" r="3" fill="white"/><path d="m29 35 4 4 8-9" fill="none" stroke="#b9ffdc" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    <span class="brand-copy"><strong>ChangeRadar</strong><small>Veille technique & résilience</small></span>
+  </a>
+  <nav id="tabs" aria-label="Navigation principale"></nav>
+  <div class="top-actions">
+    <span id="last" class="mut"></span>
+    <button id="rf" class="on">↻ Actualiser les sources</button>
+  </div>
+</header>
+<main>
+  <section class="page-intro">
+    <p class="eyebrow">ANTICIPER · VÉRIFIER · AGIR</p>
+    <h1>Votre veille technique, au même endroit.</h1>
+    <p>Repérez les fins de support, les bulletins de sécurité et les changements à préparer avant qu’ils ne deviennent des incidents.</p>
+  </section>
+  <section id="alerts"></section>
+  <section id="techs" hidden></section>
+  <section id="assets" hidden></section>
+  <section id="events" hidden></section>
+  <section id="sources" hidden></section>
+  <footer class="app-footer">ChangeRadar <span>·</span> Veille assistée, décisions vérifiées par l’humain.</footer>
+</main>
+<div id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
